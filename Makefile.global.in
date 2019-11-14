@@ -1,0 +1,38 @@
+# +----------------------------------------------------------------------------+
+# | MMEEC v0.1 * Environment characteristics editor                            |
+# | Copyright (C) 2019 Pozsár Zsolt <pozsar.zsolt@.szerafingomba.hu>           |
+# | Makefile.global(.in)                                                       |
+# | Global makefile for Unix-like systems                                      |
+# +----------------------------------------------------------------------------+
+
+name		= mmeec
+version		= @version@
+architecture	= @architecture@
+os              = @os@
+
+prefix		= @prefix@
+bindir		= @bindir@
+datarootdir	= @datarootdir@
+exec_prefix	= @exec_prefix@
+libdir		= @libdir@
+mandir		= @mandir@
+srcdir		= @srcdir@
+sysconfdir	= @sysconfdir@
+
+binmode		= 0755
+txtmode		= 0644
+
+install		= @install@
+make		= @make@
+rm		= @rm@ -f
+
+fpflag		= -T@os@ \
+                  -dUseFHS \
+                  -MObjFPC \
+                  -Scgi \
+                  -O1 \
+                  -ve \
+                  -Fu. \
+                  -Fu./lib/@architecture@-@os@/ \
+                  -FE./lib/@architecture@-@os@/
+
