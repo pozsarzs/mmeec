@@ -1,0 +1,44 @@
+{ +--------------------------------------------------------------------------+ }
+{ | MMEEC v0.1 * Environment characteristics editor                          | }
+{ | Copyright (C) 2019 Pozsár Zsolt <pozsar.zsolt@.szerafingomba.hu>         | }
+{ | config.inc(.in)                                                          | }
+{ | Setting for source code                                                  | }
+{ +--------------------------------------------------------------------------+ }
+
+//   This program is free software: you can redistribute it and/or modify it
+// under the terms of the European Union Public License 1.1 version.
+//
+//   This program is distributed in the hope that it will be useful, but WITHOUT
+// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+// FOR A PARTICULAR PURPOSE.
+
+const
+  // general
+  APPNAME='MMEEC';
+  VERSION='0.1';
+  // install path
+  INSTPATH='@prefix@/';
+  {$IFDEF UseFHS}
+    MYI18PATH='@prefix@/share/locale/';
+  {$ELSE}
+    {$IFDEF UNIX}
+      MYI18PATH='/languages/';
+    {$ENDIF}
+    {$IFDEF WIN32}
+      MYI18PATH='\languages\';
+    {$ENDIF}
+  {$ENDIF}
+  // user's folders
+  {$IFDEF UNIX}
+    DIR_CACHE='/.cache/mmeec/';
+    DIR_CONFIG='/.config/mmeec/';
+    DIR_DATA='/.local/share/mmeec/';
+    DIR_PICS='/.local/share/mmeec/base/';
+  {$ENDIF}
+  {$IFDEF WIN32}
+    DIR_CACHE='\AppData\Local\mmeec\cache\';
+    DIR_CONFIG='\AppData\Local\mmeec\config\';
+    DIR_DATA='\AppData\Local\mmeec\data\';
+    DIR_PICS='\AppData\Local\mmeec\data\base\';
+  {$ENDIF}
+
