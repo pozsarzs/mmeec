@@ -15,7 +15,7 @@
 program mmeec;
 {$MODE OBJFPC}{$H+}
 uses
-  INIFiles, SysUtils, Character,
+  Character, INIFiles, Process, SysUtils,
   crt, dos,
   untcommon;
 var
@@ -42,7 +42,7 @@ var
   hventoff, mventoff: byte;
   hventon, mventon: byte;
   pathremotefiles: array[0..15] of string;
-  pathssh, pathscp: string;
+  ssh, scp: string;
   userdir: string;
 const
   BLOCKS: array[1..8] of byte=(3,3,1,6,3,3,1,6);

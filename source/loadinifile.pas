@@ -18,11 +18,11 @@ var
   iif: TINIFile;
   b: byte;
 begin
-  iif := TIniFile.Create(filename);
+  iif:=TIniFile.Create(filename);
   loadconfig:=true;
   try
-    pathssh:=iif.ReadString('local_paths','ssh','/usr/bin/ssh');
-    pathscp:=iif.ReadString('local_paths','scp','/usr/bin/scp');
+    ssh:=iif.ReadString('local_paths','ssh','/usr/bin/ssh');
+    scp:=iif.ReadString('local_paths','scp','/usr/bin/scp');
     for b:=0 to 15 do
       pathremotefiles[b]:=iif.ReadString('remote_paths','file'+inttostr(b),'');
   except
@@ -36,7 +36,7 @@ function loadenvirchar(filename: string): boolean;
 var
   iif: TINIFile;
 begin
-  iif := TIniFile.Create(filename);
+  iif:=TIniFile.Create(filename);
   loadenvirchar:=true;
   try
     hhummax:=strtoint(iif.ReadString('hyphae','humidity_max','0'));
