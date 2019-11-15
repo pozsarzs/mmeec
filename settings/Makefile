@@ -15,16 +15,16 @@ clean:
 
 install:
 	@echo -n "- Installing configuration files..."
-	@$(install) -d $(sysconfdir)/$(name)
+	@$(install) -d $(sysconfdir)
 	@for x in $(cfgfiles); do \
-	  if [ -e $$x ]; then $(install) -m $(txtmode) $$x $(sysconfdir)/$(name); fi; \
+	  if [ -e $$x ]; then $(install) -m $(txtmode) $$x $(sysconfdir); fi; \
 	done
 	@echo "done."
 
 uninstall:
 	@echo -n "- Removing configuration files..."
 	@for x in $(cfgfiles); do \
-	  if [ -e $$x ]; then $(rm) $(sysconfdir)/$(name)/$$x; fi; \
+	  if [ -e $$x ]; then $(rm) $(sysconfdir)/$$x; fi; \
 	done
 	@rmdir $(sysconfdir)/$(name)
 	@echo "done."

@@ -581,7 +581,7 @@ PACKAGE_STRING=
 PACKAGE_BUGREPORT=
 PACKAGE_URL=
 
-ac_unique_file="source/config.inc.in"
+ac_unique_file="source/config.pas.in"
 ac_default_prefix="/usr/local"
 ac_subst_vars='LTLIBOBJS
 LIBOBJS
@@ -2060,7 +2060,7 @@ test "$stagedir" != "" && mandir="$prefix/man"
 
 
 
-ac_config_files="$ac_config_files Makefile.global source/config.inc"
+ac_config_files="$ac_config_files Makefile.global source/config.pas"
 
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
@@ -2768,7 +2768,7 @@ for ac_config_target in $ac_config_targets
 do
   case $ac_config_target in
     "Makefile.global") CONFIG_FILES="$CONFIG_FILES Makefile.global" ;;
-    "source/config.inc") CONFIG_FILES="$CONFIG_FILES source/config.inc" ;;
+    "source/config.pas") CONFIG_FILES="$CONFIG_FILES source/config.pas" ;;
 
   *) as_fn_error $? "invalid argument: \`$ac_config_target'" "$LINENO" 5;;
   esac

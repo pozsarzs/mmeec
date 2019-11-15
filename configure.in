@@ -5,7 +5,7 @@ dnl | configure.in                                                             |
 dnl | Autoconf input file for unix-like systems                                |
 dnl +--------------------------------------------------------------------------+
 
-AC_INIT(source/config.inc.in)
+AC_INIT(source/config.pas.in)
 AC_CONFIG_AUX_DIR(config)
 AC_CANONICAL_SYSTEM
 
@@ -46,7 +46,7 @@ AC_SUBST(prefix)
 AC_SUBST(rm)
 AC_SUBST(sysconfdir)
 AC_SUBST(version)
-AC_OUTPUT( Makefile.global source/config.inc )
+AC_OUTPUT( Makefile.global source/config.pas )
 
 echo "
 Summary

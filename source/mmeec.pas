@@ -71,18 +71,18 @@ const
                                      (6,0,0,0,0,0),
                                      (4,19,19,19,19,21));
 
-{$I config.inc}
-{$I cmdlineparams.inc}
-{$I loadinifile.inc}
-{$I page1screen.inc}
-{$I page2screen.inc}
-{$I page3screen.inc}
-{$I page4screen.inc}
-{$I page5screen.inc}
-{$I page6screen.inc}
-{$I page7screen.inc}
-{$I page8screen.inc}
-{$I saveinifile.inc}
+{$I config.pas}
+{$I cmdlineparams.pas}
+{$I loadinifile.pas}
+{$I page1screen.pas}
+{$I page2screen.pas}
+{$I page3screen.pas}
+{$I page4screen.pas}
+{$I page5screen.pas}
+{$I page6screen.pas}
+{$I page7screen.pas}
+{$I page8screen.pas}
+{$I saveinifile.pas}
 
 // create lookout
 procedure screen(page: byte);
