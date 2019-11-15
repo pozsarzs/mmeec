@@ -1,7 +1,7 @@
 { +--------------------------------------------------------------------------+ }
 { | MMEEC v0.1 * Environment characteristics editor                          | }
 { | Copyright (C) 2019 Pozsár Zsolt <pozsar.zsolt@.szerafingomba.hu>         | }
-{ | cmdlineparams.inc                                                        | }
+{ | cmdlineparams.pas                                                        | }
 { | Handle command line parameters                                           | }
 { +--------------------------------------------------------------------------+ }
 

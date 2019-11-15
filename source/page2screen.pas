@@ -1,7 +1,7 @@
 { +--------------------------------------------------------------------------+ }
 { | MMEEC v0.1 * Environment characteristics editor                          | }
 { | Copyright (C) 2019 Pozsár Zsolt <pozsar.zsolt@.szerafingomba.hu>         | }
-{ | page2screen.inc                                                          | }
+{ | page2screen.pas                                                          | }
 { | Show screen content of page #2                                           | }
 { +--------------------------------------------------------------------------+ }
 

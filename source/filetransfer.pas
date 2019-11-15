@@ -1,8 +1,8 @@
 { +--------------------------------------------------------------------------+ }
 { | MMEEC v0.1 * Environment characteristics editor                          | }
 { | Copyright (C) 2019 Pozsár Zsolt <pozsar.zsolt@.szerafingomba.hu>         | }
-{ | config.pas(.in)                                                          | }
-{ | Setting for source code                                                  | }
+{ | filetransfer.pas                                                         | }
+{ | Download and upload remote file                                          | }
 { +--------------------------------------------------------------------------+ }
 
 //   This program is free software: you can redistribute it and/or modify it
@@ -12,19 +12,17 @@
 // ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
 // FOR A PARTICULAR PURPOSE.
 
-const
-  // general
-  APPNAME='MMEEC';
-  VERSION='0.1';
-  // install path
-  INSTPATH='@prefix@/';
-  {$IFDEF UseFHS}
-    MYI18PATH='@prefix@/share/locale/';
-  {$ELSE}
-      MYI18PATH='/languages/';
-  {$ENDIF}
-  // user's folders
-  DIR_CACHE='/.cache/mmeec/';
-  DIR_CONFIG='/.config/mmeec/';
-  DIR_DATA='/.local/share/mmeec/';
-  TMPFILE='/tmp/mmeec.tmp';
+// select remote file for edit
+function selectremotefile: byte;
+begin
+end;
+
+// download a file from remote unit
+function download(remotefile:string): boolean;
+begin
+end;
+
+// upload a file to remote unit
+function upload(remotefile:string): boolean;
+begin
+end;
