@@ -33,12 +33,10 @@ const
     DIR_CACHE='/.cache/mmeec/';
     DIR_CONFIG='/.config/mmeec/';
     DIR_DATA='/.local/share/mmeec/';
-    DIR_PICS='/.local/share/mmeec/base/';
   {$ENDIF}
   {$IFDEF WIN32}
     DIR_CACHE='\AppData\Local\mmeec\cache\';
     DIR_CONFIG='\AppData\Local\mmeec\config\';
     DIR_DATA='\AppData\Local\mmeec\data\';
-    DIR_PICS='\AppData\Local\mmeec\data\base\';
   {$ENDIF}
 

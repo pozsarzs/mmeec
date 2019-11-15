@@ -1,5 +1,19 @@
-                            Installation instruction
-                            ~~~~~~~~~~~~~~~~~~~~~~~~
+                          Installation instruction
+                          ~~~~~~~~~~~~~~~~~~~~~~~~
+
+   MMEEC needs 'ssh' and 'scp' commands to work. Install an ssh-client
+before install MMEEC and create keypairs to easy login to remote units:
+
+   $ ssh-keygen
+   $ ssh-copy-id -i ~/.ssh/id_rsa.pub remoteunit1.lan
+   $ ssh-copy-id -i ~/.ssh/id_rsa.pub remoteunit1.lan
+   $ ssh-copy-id -i ~/.ssh/id_rsa.pub remoteunit1.lan
+
+   After installation procedures, set path of 'ssh' and 'scp' commands,
+and remote path of environment characteristics files in mmeec.ini.
+(Search it /usr/etc/ or /usr/local/etc/). If you haven't got root level
+access, copy this file to $HOME/.config/mmeec/ and edit it.
+
 1. FreeBSD
 ~~~~~~~~~~
 a. From binary (txz) package
