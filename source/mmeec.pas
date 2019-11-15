@@ -16,14 +16,14 @@ program mmeec;
 {$MODE OBJFPC}{$H+}
 uses
   INIFiles, SysUtils,
-  character, crt,
+  character, crt, dos,
   untcommon;
 var
   bottom: byte;
+  cfgfile: string;
+  exepath, p: shortstring;
   hheaterdis, mheaterdis: array[0..23] of byte;
   hhumdis, mhumdis: array[0..23] of byte;
-  hventdis, mventdis: array[0..23] of byte;
-  hventdislowtemp, mventdislowtemp: array[0..23] of byte;
   hhummax, mhummax: byte;
   hhummin, mhummin: byte;
   hhumoff, mhumoff: byte;
@@ -36,9 +36,14 @@ var
   htempmin, mtempmin: byte;
   htempoff, mtempoff: byte;
   htempon, mtempon: byte;
+  hventdislowtemp, mventdislowtemp: array[0..23] of byte;
+  hventdis, mventdis: array[0..23] of byte;
   hventlowtemp, mventlowtemp: shortint;
   hventoff, mventoff: byte;
   hventon, mventon: byte;
+  pathremotefiles: array[0..15] of string;
+  pathssh, pathscp: string;
+  userdir: string;
 const
   blocks: array[1..8] of byte=(3,3,1,6,3,3,1,6);
   minposx: array[1..8,1..6] of byte=((46,17,35,0,0,0),
@@ -65,7 +70,10 @@ const
                                      (6,21,21,0,0,0),
                                      (6,0,0,0,0,0),
                                      (4,19,19,19,19,21));
+
 {$I config.inc}
+{$I cmdlineparams.inc}
+{$I loadinifile.inc}
 {$I page1screen.inc}
 {$I page2screen.inc}
 {$I page3screen.inc}
@@ -74,9 +82,9 @@ const
 {$I page6screen.inc}
 {$I page7screen.inc}
 {$I page8screen.inc}
-{$I loadinifile.inc}
 {$I saveinifile.inc}
 
+// create lookout
 procedure screen(page: byte);
 begin
   background;
@@ -94,6 +102,7 @@ begin
   textbackground(black); gotoxy(1,bottom); clreol;
 end;
 
+// get data from keyboard
 procedure getvalue(page,block,posy: byte);
 var
   c: char;
@@ -395,12 +404,12 @@ begin
         mventlowtemp:=strtoint(s); write(mventlowtemp);
       end;
     end;
-
   end;
   footer(bottom-1,'<Tab>/<Up>/<Down> move  <Enter> edit  <Home>/<PgUp>/<PgDn>/<End> paging  <Esc> exit');
   gotoxy(1,bottom); clreol;
 end;
 
+//set values of environment characteristics
 function setvalues: boolean;
 var
   page, block, posy: byte;
@@ -492,23 +501,30 @@ begin
   if k='y' then setvalues:=true else setvalues:=false;
 end;
 
-function terminalsize: boolean;
-begin
-  if (screenwidth>=80) and (screenheight>=25)
-    then terminalsize:=true
-    else terminalsize:=false;
-  bottom:=screenheight;
-end;
-
 begin
   textcolor(lightgray); textbackground(black);
+  cmdlineparams;
+  bottom:=screenheight;
   if not terminalsize
     then quit(2,false,'ERROR: Minimal terminal size is 80x25!');
-  if not loadinifile(paramstr(1))
-    then quit(3,false,'ERROR: Cannot read '+paramstr(1)+' file!');
+  fsplit(paramstr(0),exepath,p,p);
+  userdir:=getenvironmentvariable('HOME');
+  {$IFDEF UseFHS}
+    cfgfile:=instpath+'etc/mmeec.ini';
+  {$ELSE}
+    cfgfile:=exepath+'mmeec.ini';
+  {$ENDIF}
+  if fsearch('mmeec.ini',userdir+DIR_CONFIG)<>''
+    then cfgfile:=userdir+DIR_CONFIG+'mmeec.ini';
+  if not loadconfig(cfgfile)
+    then quit(3,false,'ERROR: Cannot read '+cfgfile+' file!');
+  if not loadenvirchar(paramstr(1))
+    then quit(4,false,'ERROR: Cannot read '+paramstr(1)+' file!');
+  // ide jön a kiválasztás és letöltés
   if not setvalues
     then quit(0,true,'File '+paramstr(1)+' is not saved.');
   if not saveinifile(paramstr(1))
-    then quit(4,true,'ERROR: Cannot write '+paramstr(1)+' file!');
+    then quit(5,true,'ERROR: Cannot write '+paramstr(1)+' file!');
+  // ide jön a visszatöltés
   quit(0,true,'');
 end.

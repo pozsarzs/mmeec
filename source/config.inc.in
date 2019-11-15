@@ -21,22 +21,9 @@ const
   {$IFDEF UseFHS}
     MYI18PATH='@prefix@/share/locale/';
   {$ELSE}
-    {$IFDEF UNIX}
       MYI18PATH='/languages/';
-    {$ENDIF}
-    {$IFDEF WIN32}
-      MYI18PATH='\languages\';
-    {$ENDIF}
   {$ENDIF}
   // user's folders
-  {$IFDEF UNIX}
-    DIR_CACHE='/.cache/mmeec/';
-    DIR_CONFIG='/.config/mmeec/';
-    DIR_DATA='/.local/share/mmeec/';
-  {$ENDIF}
-  {$IFDEF WIN32}
-    DIR_CACHE='\AppData\Local\mmeec\cache\';
-    DIR_CONFIG='\AppData\Local\mmeec\config\';
-    DIR_DATA='\AppData\Local\mmeec\data\';
-  {$ENDIF}
-
+  DIR_CACHE='/.cache/mmeec/';
+  DIR_CONFIG='/.config/mmeec/';
+  DIR_DATA='/.local/share/mmeec/';

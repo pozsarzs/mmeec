@@ -24,7 +24,7 @@ begin
     pathssh:=iif.ReadString('local_paths','ssh','/usr/bin/ssh');
     pathscp:=iif.ReadString('local_paths','scp','/usr/bin/scp');
     for b:=0 to 15 do
-      pathecfiles[]:=iif.ReadString('remote_paths','file'+str(b)+,'');
+      pathremotefiles[b]:=iif.ReadString('remote_paths','file'+inttostr(b),'');
   except
     loadconfig:=false;
   end;
