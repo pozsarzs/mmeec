@@ -21,10 +21,10 @@ begin
   iif:=TIniFile.Create(filename);
   loadconfig:=true;
   try
-    ssh:=iif.ReadString('local_paths','ssh','/usr/bin/ssh');
-    scp:=iif.ReadString('local_paths','scp','/usr/bin/scp');
+    ssh:=iif.ReadString('programs','ssh','/usr/bin/ssh');
+    scp:=iif.ReadString('programs','scp','/usr/bin/scp');
     for b:=0 to 15 do
-      pathremotefiles[b]:=iif.ReadString('remote_paths','file'+inttostr(b),'');
+      pathremotefiles[b]:=iif.ReadString('remotefiles','file'+inttostr(b),'');
   except
     loadconfig:=false;
   end;
