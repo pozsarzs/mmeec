@@ -70,6 +70,8 @@ const
                                      (6,21,21,0,0,0),
                                      (6,0,0,0,0,0),
                                      (4,19,19,19,19,21));
+label
+  newupload;
 
 {$I config.pas}
 {$I cmdlineparams.pas}
@@ -520,15 +522,15 @@ begin
     then cfgfile:=userdir+DIR_CONFIG+'mmeec.ini';
   if not loadconfig(cfgfile)
     then quit(3,false,'ERROR: Cannot read '+cfgfile+' file!');
-  if not download(pathremotefiles[selectremotefile(true)])
-    then quit(4,true,'ERROR: Cannot download file!');
+  download(pathremotefiles[selectremotefile(true)]);
   if not loadenvirchar(TMPFILE)
     then quit(5,true,'ERROR: Cannot read '+TMPFILE+' file!');
   if not setvalues
     then quit(0,true,'');
   if not saveinifile(TMPFILE)
     then quit(6,true,'ERROR: Cannot write '+TMPFILE+' file!');
-  if not upload(pathremotefiles[selectremotefile(false)])
-    then quit(7,true,'ERROR: Cannot upload file!');
+  newupload:
+  upload(pathremotefiles[selectremotefile(false)]);
+  goto newupload;
   quit(0,true,'');
 end.

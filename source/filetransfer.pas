@@ -30,7 +30,6 @@ begin
     write(b+1,': '+pathremotefiles[b]);
   end;
   textbackground(black); gotoxy(1,bottom); clreol;
-  textbackground(black);
   footer(bottom-1,'<Enter> accept  <Esc> exit from program');
   textcolor(lightgray);
   gotoxy(1,bottom); write('>');
@@ -58,7 +57,7 @@ var
 begin
   footer(bottom-1,'');
   textcolor(lightgray);textbackground(black);
-  gotoxy(1,bottom); clreol; write('Download file with ''scp''...');
+  gotoxy(1,bottom); clreol; write('Downloading...');
   download:=true;
   Process1:=TProcess.Create(nil);
   Process1.Executable:=scp;
@@ -66,14 +65,21 @@ begin
   Process1.Parameters.Add('-q');
   Process1.Parameters.Add(remotefile);
   Process1.Parameters.Add(TMPFILE);
-  Process1.WaitOnExit;
+  Process1.Options:=[poWaitOnExit];
   try
     Process1.Execute;
-    repeat until Process1.WaitOnExit;
   except
     download:=false;
   end;
-  if Process1.ExitCode<>0 then download:=false;
+  if Process1.ExitStatus<>0 then download:=false;
+  if not download then
+  begin
+    background;
+    header(APPNAME+' v'+VERSION+' * Select source file to edit');
+    footer(bottom-1,'');
+    textcolor(lightgray); textbackground(black); gotoxy(1,bottom); clreol;
+    write('ERROR: Cannot download file, using default values.');
+  end;
   Process1.Free;
   delay(3000);
 end;
@@ -85,7 +91,7 @@ var
 begin
   footer(bottom-1,'');
   textcolor(lightgray);textbackground(black);
-  gotoxy(1,bottom); clreol; write('Upload file with ''scp''...');
+  gotoxy(1,bottom); clreol; write('Uploading...');
   upload:=true;
   Process2:=TProcess.Create(nil);
   Process2.Executable:=scp;
@@ -93,13 +99,21 @@ begin
   Process2.Parameters.Add('-q');
   Process2.Parameters.Add(TMPFILE);
   Process2.Parameters.Add(remotefile);
+  Process2.Options:=[poWaitOnExit];
   try
     Process2.Execute;
-    repeat until Process2.WaitOnExit;
   except
     upload:=false;
   end;
-  if Process2.ExitCode<>0 then upload:=false;
+  if Process2.ExitStatus<>0 then upload:=false;
+  if not upload then
+  begin
+    background;
+    header(APPNAME+' v'+VERSION+' * Select target file to upload');
+    footer(bottom-1,'');
+    textcolor(lightgray); textbackground(black); gotoxy(1,bottom); clreol;
+    write('ERROR: Cannot upload file, try again!');
+  end;
   Process2.Free;
   delay(3000);
 end;
