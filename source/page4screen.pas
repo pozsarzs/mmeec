@@ -15,7 +15,7 @@
 // show page #4
 procedure page4screen;
 begin
-  header('EditEnvirConf '+VERSION+' * Page 4/8: Growing hyphae - ventilating');
+  header(APPNAME+' v'+VERSION+' * Settings page 4/8: Growing hyphae - ventilating');
   textcolor(white);
   gotoxy(4,3); writeln('Ventilators switch-on minute:');
   gotoxy(4,4); writeln('Ventilators switch-off minute:');

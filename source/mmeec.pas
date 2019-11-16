@@ -423,7 +423,7 @@ begin
  back:
   textbackground(black);
   gotoxy(1,bottom); clreol;
-  footer(bottom-1,'<Tab>/<Up>/<Down> move  <Enter> edit  <Home>/<PgUp>/<PgDn>/<End> paging  <Esc> exit');
+  footer(bottom-1,'<Tab>/<Up>/<Down> move  <Enter> edit  <Home>/<PgUp>/<PgDn>/<End> paging  <Esc> exit/upload');
   posy:=MINPOSY[page,block];
   gotoxy(MINPOSX[page,block],posy);
   repeat
@@ -493,7 +493,7 @@ begin
   until k=#27;
   footer(bottom-1,'<Esc> cancel');
   textcolor(lightgray);
-  gotoxy(1,bottom); write('Save to '+paramstr(1)+'? (y/n) ');
+  gotoxy(1,bottom); write('Upload file? (y/n) ');
   textcolor(white);
   repeat
     k:=lowercase(readkey);
@@ -520,15 +520,15 @@ begin
     then cfgfile:=userdir+DIR_CONFIG+'mmeec.ini';
   if not loadconfig(cfgfile)
     then quit(3,false,'ERROR: Cannot read '+cfgfile+' file!');
-  if not download(pathremotefiles[selectremotefile])
-    then quit(4,true,'ERROR: Cannot download '+pathremotefiles[selectremotefile]+' file!');
+  if not download(pathremotefiles[selectremotefile(true)])
+    then quit(4,true,'ERROR: Cannot download file!');
   if not loadenvirchar(TMPFILE)
     then quit(5,true,'ERROR: Cannot read '+TMPFILE+' file!');
   if not setvalues
-    then quit(0,true,'Data is not saved.');
+    then quit(0,true,'');
   if not saveinifile(TMPFILE)
     then quit(6,true,'ERROR: Cannot write '+TMPFILE+' file!');
-  if not upload(pathremotefiles[selectremotefile])
-    then quit(7,true,'ERROR: Cannot upload '+pathremotefiles[selectremotefile]+' file!');
+  if not upload(pathremotefiles[selectremotefile(false)])
+    then quit(7,true,'ERROR: Cannot upload file!');
   quit(0,true,'');
 end.

@@ -15,7 +15,7 @@
 // show page #2
 procedure page2screen;
 begin
-  header('EditEnvirConf '+VERSION+' * Page 2/8: Growing hyphae - heating');
+  header(APPNAME+' v'+VERSION+' * Settings page 2/8: Growing hyphae - heating');
   textcolor(white);
   gotoxy(4,3); writeln('Minimal temperature:');
   gotoxy(4,4); writeln('Heating switch-on temperature:');

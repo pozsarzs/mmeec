@@ -29,10 +29,9 @@ var
   var
     b: byte;
   begin
-  if mode
-  then
-    quit(1,false,'ERROR: There are one or more bad parameter in command line.')
-  else
+    if mode then
+      quit(1,false,'ERROR: There are one or more bad parameter in command line.')
+    else
     begin
       writeln('Usage:');
       writeln(' ',fn,{$IFDEF WIN32}'.',fe,{$ENDIF}' [parameter]');
@@ -45,21 +44,21 @@ var
         gotoxy(30,wherey); writeln(params[b,3]);
       end;
     end;
-  quit(0,false,'');
-end;
+    quit(0,false,'');
+  end;
 
-// write version and build information
-procedure verinfo;
-begin
-  writeln(APPNAME+' v'+VERSION);
-  writeln;
-  writeln('This application was compiled at ',{$I %TIME%},' on ',{$I %DATE%},
-    ' by ',{$I %USER%});
-  writeln('FPC version: ',{$I %FPCVERSION%});
-  writeln('Target OS:   ',{$I %FPCTARGETOS%});
-  writeln('Target CPU:  ',{$I %FPCTARGETCPU%});
-  quit(0,false,'');
-end;
+  // write version and build information
+  procedure verinfo;
+  begin
+    writeln(APPNAME+' v'+VERSION);
+    writeln;
+    writeln('This application was compiled at ',{$I %TIME%},' on ',{$I %DATE%},
+      ' by ',{$I %USER%});
+    writeln('FPC version: ',{$I %FPCVERSION%});
+    writeln('Target OS:   ',{$I %FPCTARGETOS%});
+    writeln('Target CPU:  ',{$I %FPCTARGETCPU%});
+    quit(0,false,'');
+  end;
 
 begin
   fn:=extractfilename(paramstr(0));

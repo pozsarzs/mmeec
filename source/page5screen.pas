@@ -15,7 +15,7 @@
 // show page #5
 procedure page5screen;
 begin
-  header('EditEnvirConf '+VERSION+' * Page 5/8: Growing mushroom - humidifying');
+  header(APPNAME+' v'+VERSION+' * Settings page 5/8: Growing mushroom - humidifying');
   textcolor(white);
   gotoxy(4,3); writeln('Minimal relative humidity:');
   gotoxy(4,4); writeln('Humidifier switch-on humidity:');

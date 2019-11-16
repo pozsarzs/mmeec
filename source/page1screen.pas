@@ -15,7 +15,7 @@
 // show page #1
 procedure page1screen;
 begin
-  header('EditEnvirConf '+VERSION+' * Page 1/8: Growing hyphae - humidifying');
+  header(APPNAME+' v'+VERSION+' * Settings page 1/8: Growing hyphae - humidifying');
   textcolor(white);
   gotoxy(4,3); writeln('Minimal relative humidity:');
   gotoxy(4,4); writeln('Humidifier switch-on humidity:');

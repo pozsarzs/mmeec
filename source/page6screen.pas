@@ -15,7 +15,7 @@
 // show page #6
 procedure page6screen;
 begin
-  header('EditEnvirConf '+VERSION+' * Page 6/8: Growing mushroom - heating');
+  header(APPNAME+' v'+VERSION+' * Settings page 6/8: Growing mushroom - heating');
   textcolor(white);
   gotoxy(4,3); writeln('Minimal temperature:');
   gotoxy(4,4); writeln('Heating switch-on temperature:');

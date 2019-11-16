@@ -15,7 +15,7 @@
 // show page #8
 procedure page8screen;
 begin
-  header('EditEnvirConf '+VERSION+' * Page 8/8: Growing mushroom - ventilating');
+  header(APPNAME+' v'+VERSION+' * Settings page 8/8: Growing mushroom - ventilating');
   textcolor(white);
   gotoxy(4,3); writeln('Ventilators switch-on minute:');
   gotoxy(4,4); writeln('Ventilators switch-off minute:');

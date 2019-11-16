@@ -15,7 +15,7 @@
 // show page #7
 procedure page7screen;
 begin
-  header('EditEnvirConf '+VERSION+' * Page 7/8: Growing mushroom - lighting');
+  header(APPNAME+' v'+VERSION+' * Settings page 7/8: Growing mushroom - lighting');
   textcolor(white);
   gotoxy(4,3); writeln('Lights switch-on time #1:');
   gotoxy(4,4); writeln('Lights switch-off time #1:');

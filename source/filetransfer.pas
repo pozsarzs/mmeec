@@ -13,14 +13,16 @@
 // FOR A PARTICULAR PURPOSE.
 
 // select remote file for edit
-function selectremotefile: byte;
+function selectremotefile(direction: boolean): byte;
 var
   b: byte;
   c: char;
   s: string;
 begin
   background;
-  header(APPNAME+' v'+VERSION+' * Select remote file to edit');
+  if direction
+    then header(APPNAME+' v'+VERSION+' * Select source file to edit')
+    else header(APPNAME+' v'+VERSION+' * Select target file to upload');
   textcolor(white);
   for b:=0 to 15 do
   begin
@@ -29,7 +31,7 @@ begin
   end;
   textbackground(black); gotoxy(1,bottom); clreol;
   textbackground(black);
-  footer(bottom-1,'<Enter> accept  <Esc> exit');
+  footer(bottom-1,'<Enter> accept  <Esc> exit from program');
   textcolor(lightgray);
   gotoxy(1,bottom); write('>');
   s:='';

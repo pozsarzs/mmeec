@@ -15,7 +15,7 @@
 // show page #3
 procedure page3screen;
 begin
-  header('EditEnvirConf '+VERSION+' * Page 3/8: Growing hyphae - lighting');
+  header(APPNAME+' v'+VERSION+' * Settings page 3/8: Growing hyphae - lighting');
   textcolor(white);
   gotoxy(4,3); writeln('Lights switch-on time #1:');
   gotoxy(4,4); writeln('Lights switch-off time #1:');
