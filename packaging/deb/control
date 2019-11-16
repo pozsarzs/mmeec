@@ -1,0 +1,12 @@
+Package: mmeec
+Version: 0.1
+Section: ?
+Priority: extra
+Architecture: i386
+Installed-Size: ? kB
+Maintainer: Pozsar Zsolt <pozsar.zsolt@szerafingomba.hu>
+Depends: openssh-client
+Description: Environment characteristics editor
+ It is an remote editor for environment characteristics
+ configuration file of MM3D (>v0.3) and MM5D growing
+ house controllers.

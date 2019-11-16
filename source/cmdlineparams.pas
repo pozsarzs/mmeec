@@ -30,7 +30,7 @@ var
     b: byte;
   begin
     if mode then
-      quit(1,false,'ERROR: There are one or more bad parameter in command line.')
+      quit(1,false,'ERROR: There are one or more bad parameters in command line.')
     else
     begin
       writeln('Usage:');

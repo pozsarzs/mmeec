@@ -524,11 +524,11 @@ begin
     then quit(3,false,'ERROR: Cannot read '+cfgfile+' file!');
   download(pathremotefiles[selectremotefile(true)]);
   if not loadenvirchar(TMPFILE)
-    then quit(5,true,'ERROR: Cannot read '+TMPFILE+' file!');
+    then quit(4,true,'ERROR: Cannot read '+TMPFILE+' file!');
   if not setvalues
     then quit(0,true,'');
   if not saveinifile(TMPFILE)
-    then quit(6,true,'ERROR: Cannot write '+TMPFILE+' file!');
+    then quit(5,true,'ERROR: Cannot write '+TMPFILE+' file!');
   newupload:
   upload(pathremotefiles[selectremotefile(false)]);
   goto newupload;

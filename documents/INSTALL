@@ -14,6 +14,7 @@ and remote path of environment characteristics files in mmeec.ini.
 (Search it /usr/etc/ or /usr/local/etc/). If you haven't got root level
 access, copy this file to $HOME/.config/mmeec/ and edit it.
 
+
 1. FreeBSD
 ~~~~~~~~~~
 a. From binary (txz) package
@@ -68,6 +69,8 @@ d. From source package
 
    Build and install:
    $ tar -xzf mmeec-0.1.tar.gz
+            or
+   $ git clone https://github.com/pozsarzs/mmeec.git
    $ ./configure
    $ make
    # make install
