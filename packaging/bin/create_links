@@ -40,8 +40,6 @@ do
 done
 ln -s `pwd`/$BINFILE $LINKDIR/bin/$BINFILE 2> /dev/null
 echo "  "`pwd`/$BINFILE' --> '$LINKDIR/bin/$BINFILE
-ln -s `pwd`/settings/"$BINFILE".ini $LINKDIR/etc/$BINFILE.ini 2> /dev/null
-echo "  "`pwd`/settings/"$BINFILE".ini' --> '$LINKDIR/etc/$BINFILE.ini
 ln -s `pwd`/manuals/"$BINFILE"_en.1 $LINKDIR/share/man/man1/$BINFILE.1 2> /dev/null
 echo "  "`pwd`/manuals/"$BINFILE"_en.1' --> '$LINKDIR/share/man/man1/$BINFILE.1
 echo "Done."

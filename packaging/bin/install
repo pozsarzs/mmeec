@@ -15,7 +15,6 @@ SUBDIRS="documents \
          manuals \
          settings"
 SYSDIRS="$LINKDIR/bin \
-         $LINKDIR/etc \
          $LINKDIR/share/man/man1"
 BINFILE=mmeec
 CPFILES="$BINFILE \
@@ -67,8 +66,6 @@ done
 echo "- creating symbolic links:"
 ln -s $INSTDIR/$BINFILE $LINKDIR/bin/$BINFILE 2> /dev/null
 echo "  "$INSTDIR/$BINFILE' --> '$LINKDIR/bin/$BINFILE
-ln -s $INSTDIR/settings/"$BINFILE".ini $LINKDIR/etc/$BINFILE.ini 2> /dev/null
-echo "  "$INSTDIR/settings/"$BINFILE".ini' --> '$LINKDIR/etc/$BINFILE.ini
 ln -s $INSTDIR/manuals/"$BINFILE"_en.1 $LINKDIR/share/man/man1/$BINFILE.1 2> /dev/null
 echo "  "$INSTDIR/manuals/"$BINFILE"_en.1' --> '$LINKDIR/share/man/man1/$BINFILE.1
 echo "Done."

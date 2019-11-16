@@ -1,9 +1,9 @@
 Package: mmeec
 Version: 0.1
-Section: ?
+Section: misc
 Priority: extra
 Architecture: i386
-Installed-Size: ? kB
+Installed-Size: 876 kB
 Maintainer: Pozsar Zsolt <pozsar.zsolt@szerafingomba.hu>
 Depends: openssh-client
 Description: Environment characteristics editor

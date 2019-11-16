@@ -515,11 +515,15 @@ begin
   userdir:=getenvironmentvariable('HOME');
   {$IFDEF UseFHS}
     cfgfile:=instpath+'etc/mmeec.ini';
+    if instpath='/usr/' then cfgfile:='/etc/mmeec.ini';
   {$ELSE}
-    cfgfile:=exepath+'mmeec.ini';
+    cfgfile:=exepath+'settings/mmeec.ini';
   {$ENDIF}
+
   if fsearch('mmeec.ini',userdir+DIR_CONFIG)<>''
     then cfgfile:=userdir+DIR_CONFIG+'mmeec.ini';
+
+
   if not loadconfig(cfgfile)
     then quit(3,false,'ERROR: Cannot read '+cfgfile+' file!');
   download(pathremotefiles[selectremotefile(true)]);
