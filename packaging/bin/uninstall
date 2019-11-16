@@ -1,0 +1,37 @@
+#!/bin/bash
+# +----------------------------------------------------------------------------+
+# | MMEEC v0.1 * Environment characteristics editor                            |
+# | Copyright (C) 2019 Pozsár Zsolt <pozsar.zsolt@.szerafingomba.hu>           |
+# | uninstall                                                                  |
+# | Uninstaller script                                                         |
+# +----------------------------------------------------------------------------+
+
+# constans
+SWN="MMEEC"
+SWV=`cat documents/VERSION`
+INSTDIR=/opt/mmeec
+LINKDIR=/usr/local
+BINFILE=mmeec
+
+# uninstaller
+clear
+echo "--------------------------------------------------------------------------------"
+echo "$SWN $SWV uninstaller script"
+echo "Copyright (C) 2019 Pozsár Zsolt <pozsar.zsolt@.szerafingomba.hu>"
+echo "--------------------------------------------------------------------------------"
+if [ `whoami` != 'root' ]
+then echo 'ERROR: You are not root!'; exit
+fi
+sleep 1
+echo "Uninstalling..."
+echo "- removing symbolic links:"
+rm --force $LINKDIR/bin/$BINFILE 2> /dev/null
+echo "  $LINKDIR/bin/$BINFILE"
+rm --force $LINKDIR/etc/$BINFILE.ini 2> /dev/null
+echo "  $LINKDIR/etc/$BINFILE.ini"
+rm --force $LINKDIR/share/man/man1/$BINFILE.1 2> /dev/null
+echo "  $LINKDIR/share/man/man1/$BINFILE.1"
+echo "- removing directory recursively:"
+rm --force --recursive $INSTDIR 2> /dev/null
+echo "  $INSTDIR"/
+echo "Done."
