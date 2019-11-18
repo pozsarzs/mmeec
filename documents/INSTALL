@@ -11,7 +11,7 @@ before install MMEEC and create keypairs to easy login to remote units:
 
    After installation procedures, set path of 'ssh' and 'scp' commands,
 and remote path of environment characteristics files in mmeec.ini.
-(Search it /usr/etc/ or /usr/local/etc/). If you haven't got root level
+(Search it /etc/ or /usr/local/etc/). If you haven't got root level
 access, copy this file to $HOME/.config/mmeec/ and edit it.
 
 

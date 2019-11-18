@@ -2,7 +2,7 @@
 
 PORTNAME=	mmeec
 PORTVERSION=	0.1
-CATEGORIES=	?
+CATEGORIES=	net
 MASTER_SITES=	http://www.szerafingomba.hu/softwares/mmeec/
 
 MAINTAINER=	pozsar.zsolt@szerafingomba.hu

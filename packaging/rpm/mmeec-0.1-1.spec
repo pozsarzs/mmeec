@@ -1,4 +1,4 @@
-Group: ?
+Group: Productivity/Networking/Other
 License: EUPL
 Name: mmeec
 Packager: Pozsar Zsolt <pozsar.zsolt@szerafingomba.hu>
@@ -14,10 +14,9 @@ configuration file of MM3D (>v0.3) and MM5D growing
 house controllers.
 
 %files
+/etc/mmeec.ini
 /usr/bin/mmeec
-/usr/etc/mmeec.ini
 /usr/share/doc/mmeec/AUTHORS
-/usr/share/doc/mmeec/INSTALL
 /usr/share/doc/mmeec/README
 /usr/share/doc/mmeec/VERSION
 /usr/share/man/man1/mmeec.1.gz
