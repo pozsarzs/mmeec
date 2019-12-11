@@ -1,14 +1,14 @@
-MMEEC - Environment characteristics editor
-------------------------------------------
+MMEEC -   Environment characteristics editor
+--------------------------------------------
 
-I. About software
-
+1. About software
+~~~~~~~~~~~~~~~~~
   It is an remote editor for environment characteristics configuration
   file of MM3D (>v0.3) and MM5D growing house controllers.
 
-II. How to get installer package for my OS?
-
-  Visit homepage (see later) to download installer packages:
+2. How to get installer package for my OS?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+a. Visit homepage (see later) to download installer packages:
 
   FreeBSD:     mmeec-0.1.txz
                mmeec-0.1-FreeBSD-Port.shar  port package
@@ -17,14 +17,29 @@ II. How to get installer package for my OS?
                mmeec-0.1-i586-1.txz         Slackware
                mmeec-0.1-1.i386.rpm         Suse Linux
                mmeec-0.1-i586.bin           (linux-i586)
-               mmeec-0.1-i586.tar.gz        (linux-i586) - portable
+               mmeec-0.1-i586.tar.gz        (linux-i586)
 
   source:      mmeec-0.1.tar.gz
 
-III. Contact
+b. Download from Github
 
-   Homepage:             <http://www.szerafingomba.hu/softwares.html>
-   Author:               Pozsar Zsolt self-employed
+  $ git clone https://github.com/pozsarzs/mmeec.git
+
+c. Download from Debian repository
+
+  set reporitory:
+  # echo "deb http://www.szerafingomba.hu/deb/ ./" >> /etc/apt/sources.list
+  # wget -q -O - http://www.szerafingomba.hu/deb/KEY.gpg | apt-key add -
+  # apt-get update
+
+  install
+  # apt-get install mmeec
+
+3. Contact
+~~~~~~~~~~
+
+   Homepage:             <http://www.szerafingomba.hu/softwares/>
+   Author:               Pozsar Zsolt
    Tax ID:               60407850-1-36
    Registration num.:    20703695
 
@@ -35,6 +50,6 @@ III. Contact
                          Kurazsi Fo ut 1.
                          HU-5430 Tiszafoldvar
                          Hungary
----------------------------------------------------------------------------------
-    MMEEC * Copyright (C) 2019 Pozsar Zsolt <pozsar.zsolt@.szerafingomba.hu>
 
+---------------------------------------------------------------------------------
+ MMEEC * Copyright (C) 2019 Pozsar Zsolt <pozsar.zsolt@szerafingomba.hu>
