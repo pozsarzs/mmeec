@@ -1,5 +1,5 @@
 { +--------------------------------------------------------------------------+ }
-{ | MMEEC v0.1 * Environment characteristics editor                          | }
+{ | MMEEC v0.1.1 * Environment characteristics editor                        | }
 { | Copyright (C) 2019 Pozsár Zsolt <pozsar.zsolt@.szerafingomba.hu>         | }
 { | filetransfer.pas                                                         | }
 { | Download and upload remote file                                          | }
@@ -88,6 +88,18 @@ end;
 function upload(remotefile:string): boolean;
 var
   Process2: TProcess;
+
+  function extractusername(rfn: string): string;
+  var
+    un: string;
+    bb: byte;
+  begin
+    un:='';
+    for bb:=1 to length(rfn) do
+      if rfn[bb]<>':' then un:=un+rfn[bb] else break;
+    extractusername:=un;
+  end;
+
 begin
   footer(bottom-1,'');
   textcolor(lightgray);textbackground(black);
@@ -113,7 +125,50 @@ begin
     footer(bottom-1,'');
     textcolor(lightgray); textbackground(black); gotoxy(1,bottom); clreol;
     write('ERROR: Cannot upload file, try again!');
+    delay(3000);
+    exit;
   end;
   Process2.Free;
-  delay(3000);
+  footer(bottom-1,'');
+  textcolor(lightgray);textbackground(black);
+  gotoxy(1,bottom); clreol; write('Restart daemon...');
+  upload:=true;
+  Process2:=TProcess.Create(nil);
+  Process2.Executable:=ssh;
+  Process2.Parameters.Clear;
+  Process2.Parameters.Add('-q');
+  Process2.Parameters.Add(extractusername(remotefile));
+  Process2.Parameters.Add('mm3d-stopdaemon');
+  Process2.Parameters.Add('> /dev/null');
+  Process2.Options:=[poWaitOnExit];
+  try
+    Process2.Execute;
+  except
+    upload:=false;
+  end;
+  Process2.Free;
+  Process2:=TProcess.Create(nil);
+  Process2.Executable:=ssh;
+  Process2.Parameters.Clear;
+  Process2.Parameters.Add('-q');
+  Process2.Parameters.Add(extractusername(remotefile));
+  Process2.Parameters.Add('mm3d-startdaemon');
+  Process2.Parameters.Add('> /dev/null');
+  Process2.Options:=[poWaitOnExit];
+  try
+    Process2.Execute;
+  except
+    upload:=false;
+  end;
+  if Process2.ExitStatus<>0 then upload:=false;
+  if not upload then
+  begin
+    background;
+    header(APPNAME+' v'+VERSION+' * Select target file to upload');
+    footer(bottom-1,'');
+    textcolor(lightgray); textbackground(black); gotoxy(1,bottom); clreol;
+    write('ERROR: Cannot upload file, try again!');
+    delay(3000);
+  end;
+  Process2.Free;
 end;

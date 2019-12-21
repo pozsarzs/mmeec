@@ -1,5 +1,5 @@
 { +--------------------------------------------------------------------------+ }
-{ | MMEEC v0.1 * Environment characteristics editor                          | }
+{ | MMEEC v0.1.1 * Environment characteristics editor                        | }
 { | Copyright (C) 2019 Pozsár Zsolt <pozsar.zsolt@.szerafingomba.hu>         | }
 { | mmeec.pas                                                                | }
 { | Full-screen program for edit envir.ini file                              | }
@@ -519,11 +519,8 @@ begin
   {$ELSE}
     cfgfile:=exepath+'settings/mmeec.ini';
   {$ENDIF}
-
   if fsearch('mmeec.ini',userdir+DIR_CONFIG)<>''
     then cfgfile:=userdir+DIR_CONFIG+'mmeec.ini';
-
-
   if not loadconfig(cfgfile)
     then quit(3,false,'ERROR: Cannot read '+cfgfile+' file!');
   download(pathremotefiles[selectremotefile(true)]);

@@ -10,16 +10,16 @@ MMEEC -   Environment characteristics editor
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 a. Visit homepage (see later) to download installer packages:
 
-  FreeBSD:     mmeec-0.1.txz
-               mmeec-0.1-FreeBSD-Port.shar  port package
+  FreeBSD:     mmeec-0.1.1.txz
+               mmeec-0.1.1-FreeBSD-Port.shar  port package
 
-  Linux:       mmeec_0.1-1_i386.deb         Debian GNU/Linux
-               mmeec-0.1-i586-1.txz         Slackware
-               mmeec-0.1-1.i386.rpm         Suse Linux
-               mmeec-0.1-i586.bin           (linux-i586)
-               mmeec-0.1-i586.tar.gz        (linux-i586)
+  Linux:       mmeec_0.1.1-1_i386.deb         Debian GNU/Linux
+               mmeec-0.1.1-i586-1.txz         Slackware
+               mmeec-0.1.1-1.i386.rpm         Suse Linux
+               mmeec-0.1.1-i586.bin           (linux-i586)
+               mmeec-0.1.1-i586.tar.gz        (linux-i586)
 
-  source:      mmeec-0.1.tar.gz
+  source:      mmeec-0.1.1.tar.gz
 
 b. Download from Github
 

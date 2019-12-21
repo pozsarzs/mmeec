@@ -12,12 +12,15 @@ and remote path of environment characteristics files in mmeec.ini.
 (Search it /etc/ or /usr/local/etc/). If you haven't got root level
 access, copy this file to $HOME/.config/mmeec/ and edit it.
 
+  Do not forget to set write permission for envir.ini and its directory
+for mm3d or mm5d user!
+
 1. FreeBSD
 ~~~~~~~~~~
 a. From source package
 
    Build and install:
-   $ tar -xzf mmeec-0.1.tar.gz
+   $ tar -xzf mmeec-0.1.1.tar.gz
    $ ./configure
    $ make
    # make install
@@ -30,7 +33,7 @@ a. From source package
 a. From source package
 
    Build and install:
-   $ tar -xzf mmeec-0.1.tar.gz
+   $ tar -xzf mmeec-0.1.1.tar.gz
    $ ./configure
    $ make
    # make install
@@ -41,11 +44,11 @@ a. From source package
 b. From binary package
 
    Install:
-   # tar -xzf mmeec-0.1-i586.tar.gz
+   # tar -xzf mmeec-0.1.1-i586.tar.gz
    # cd mmeec
    # ./create_links
             or
-   # tar -xzf mmeec-0.1-i586.tar.gz
+   # tar -xzf mmeec-0.1.1-i586.tar.gz
    # cd mmeec
    # ./install
 

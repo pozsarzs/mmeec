@@ -1,8 +1,9 @@
-25046d9f3800203d7a3513851b3be295  etc/mmeec.ini
-1ebdaaf32e4470a5f6a0255e5dad2118  usr/bin/mmeec
+d7f14f85234a97550c60d12be41b51c7  etc/mmeec.ini
+9044e4feab2ce05b158c604209b87ef5  usr/bin/mmeec
 4994f4cacf022e01ffda29f5627f7ab5  usr/share/doc/mmeec/AUTHORS
+3854b20cdd22a6a8ead872ffc7c00ccc  usr/share/doc/mmeec/ChangeLog
 c8fb9e658b6ad2a4084068e005ae214d  usr/share/doc/mmeec/changelog.Debian.gz
 659d45782daed869faa97bcd5831318f  usr/share/doc/mmeec/copyright
-92f8cdf3d36847ffef0f031a230e5607  usr/share/doc/mmeec/README
-e95b902a1037d461ca0e94f2bddf7a28  usr/share/doc/mmeec/VERSION
-0b9b0cc7f1b62a5a9adb48e4108b5dc6  usr/share/man/man1/mmeec.1.gz
+51e9841057f91dc74c4ea1cc06abd031  usr/share/doc/mmeec/README
+776f5cac6cd7a8946085001e4f5661cf  usr/share/doc/mmeec/VERSION
+3924e96db22ca6e6f6f42948c715060e  usr/share/man/man1/mmeec.1.gz
