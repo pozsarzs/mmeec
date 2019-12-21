@@ -1,6 +1,7 @@
 bin/mmeec
 etc/mmeec.ini
 share/doc/mmeec/AUTHORS
+share/doc/mmeec/ChangeLog
 share/doc/mmeec/README
 share/doc/mmeec/VERSION
 man/man1/mmeec.1.gz

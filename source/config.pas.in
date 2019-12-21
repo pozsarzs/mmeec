@@ -15,7 +15,7 @@
 const
   // general
   APPNAME='MMEEC';
-  VERSION='0.1';
+  VERSION='0.1.1';
   // install path
   INSTPATH='@prefix@/';
   {$IFDEF UseFHS}

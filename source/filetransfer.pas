@@ -126,13 +126,13 @@ begin
     textcolor(lightgray); textbackground(black); gotoxy(1,bottom); clreol;
     write('ERROR: Cannot upload file, try again!');
     delay(3000);
+    Process2.Free;
     exit;
   end;
   Process2.Free;
   footer(bottom-1,'');
   textcolor(lightgray);textbackground(black);
   gotoxy(1,bottom); clreol; write('Restart daemon...');
-  upload:=true;
   Process2:=TProcess.Create(nil);
   Process2.Executable:=ssh;
   Process2.Parameters.Clear;
